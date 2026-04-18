@@ -6,17 +6,13 @@
 #no spaces allowed
 #must be in lowercase
 
+import re
 username = input("Enter your username: ").strip()
-if len(username) < 6:
-    print("Username must be at least 6 characters long.")
-elif len(username) > 20:
-    print("Username must be less than 20 characters long.")
-elif not username.replace("_", "").replace(".", "").isalnum():
+if not (6 <= len(username) <= 20):
+    print("Username must be between 6 and 20 characters long.")
+elif not re.fullmatch(r'[a-z0-9_.]+', username):
     print("Username must contain only letters, numbers, underscores, and periods.")
-elif not username.find(" ") == -1:
-    print("Username must not contain spaces.")
 elif not username.lower() == username:
     print("Username must be in lowercase.")
 else:
     print(f"welcome {username}!")
-
