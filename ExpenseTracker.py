@@ -1,6 +1,37 @@
+expenses = []
+category_totals = {}
+categories = set()
+
+def add_expense(date, category, amount, description):
+    expense = (date, category, amount, description)
+    expenses.append(expense)
+    categories.add(category)
+    if category in category_totals:
+        category_totals[category] += amount
+    else:
+        category_totals[category] = amount
+    print("Expense added successfully!")
+
+def show_total():
+    if len(expenses) == 0:
+        print("No expenses recorded.")
+        return
+    else:
+        total = sum(amount for _, _, amount, _ in expenses)
+    print(f"Total Expenses: ${total:.2f}")
+
+def view_expenses():
+    if len(expenses) == 0:
+        print("No expenses recorded.")
+        return
+    print("\nAll Expenses:")
+    for date, category, amount, description in expenses:
+        print(f"{date} - {category.capitalize()}: ${amount:.2f} ({description})")
+
+
+
 def main():
     print("Welcome to the Expense Tracker!")
-    
     while True:
         print("\nMenu:")
         print("1. Add Expense")
@@ -21,7 +52,13 @@ def main():
                 print("Invalid amount. Please enter a number.")
                 continue
             description = input("Enter a description(item): ").strip()
-            expenses.append((date, category, amount, description))
-            print("Expense added successfully!")
-        
+            add_expense(date, category, amount, description)
+
+        elif choice == '2':
+            view_expenses()
+
+        elif choice == '5':
+            show_total()
+           
+main()
         
