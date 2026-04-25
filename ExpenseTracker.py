@@ -50,7 +50,10 @@ def main():
         choice = input("Choose an option (1-5):").strip()
         
         if choice == '1':
-            date = input("Enter the date of the expense (YYYY-MM-DD): ").strip()
+            year = input("Enter the year of the expense (YYYY): ").strip()
+            month = input("Enter the month of the expense (MM): ").strip()
+            day = input("Enter the day of the expense (DD): ").strip()
+            date = f"{year}-{month}-{day}"
             category = input("Enter the category: ").strip().lower()
             try:
                 amount = float(input("Enter the amount: ").strip())
