@@ -28,24 +28,14 @@ def view_expenses():
     for date, category, amount, description in expenses:
         print(f"{date} - {category.capitalize()}: ${amount:.2f} ({description})")
 
-def view_categories():
-    if len(categories) == 0:
-        print("No categories recorded.")
-        return
-    else:
-     print("\nCategories:")
-     for category in sorted(categories):
-        print(f"- {category.capitalize()}")
-
-def view_total_by_category():
+def view_by_category():
     if len(category_totals) == 0:
-        print("No expenses recorded.")
+        print("No categories recorded.")
         return
     else:
      print("\nTotal Expenses by Category:")
      for category, total in category_totals.items():
         print(f"{category.capitalize()}: ${total:.2f}")
-
 
 def main():
     print("Welcome to the Expense Tracker!")
@@ -53,12 +43,11 @@ def main():
         print("\nMenu:")
         print("1. Add Expense")
         print("2. View All Expenses")
-        print("3. View All Categories")
-        print("4. View Total By Category")
-        print("5. View Total Expenses")
-        print("6. Exit")
+        print("3. View By Category")
+        print("4. View Total Expenses")
+        print("5. Exit")
         
-        choice = input("Choose an option (1-6):").strip()
+        choice = input("Choose an option (1-5):").strip()
         
         if choice == '1':
             date = input("Enter the date of the expense (YYYY-MM-DD): ").strip()
@@ -75,15 +64,12 @@ def main():
             view_expenses()
 
         elif choice == '3':
-            view_categories()
+            view_by_category()
 
-        elif choice == '4':
-            view_total_by_category()
-
-        elif choice == '5':
+        elif choice == '4': 
             show_total()
 
-        elif choice == '6':
+        elif choice == '5':
             print("goodbye!")
             break
         
