@@ -38,18 +38,18 @@ def view_by_category():
         print("No categories recorded.")
         return
     else:
-     print("\nTotal Expenses by Category:")
-     for category, total in category_totals.items():
-        print(f"{category.capitalize()}: ${total:.2f}")
+        print("\nTotal Expenses by Category:")
+        for category, total in category_totals.items():
+            print(f"{category.capitalize()}: ${total:.2f}")
 
 def expenses_by_month():
     if len(expenses) == 0:
         print ("No expenses recorded.")
         return
     else:
-     print("\nTotal Expenses by Month:")
-     for monthyear, total in monthly_totals.items():
-        print(f"{monthyear}: ${total:.2f}")
+        print("\nTotal Expenses by Month:")
+        for monthyear, total in monthly_totals.items():
+            print(f"{monthyear}: ${total:.2f}")
 
 def main():
     print("Welcome to the Expense Tracker!")
