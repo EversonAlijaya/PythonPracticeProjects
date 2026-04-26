@@ -1,12 +1,10 @@
 expenses = []
 category_totals = {}
 monthly_totals = {}
-categories = set()
 
 def add_expense(monthyear,day, category, amount, description):
     expense = (monthyear, day, category, amount, description)
     expenses.append(expense)
-    categories.add(category)
     if category in category_totals:
         category_totals[category] += amount
     else:
